@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>Calendar - My family Agenda</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="style.css">
+     <script src="slide-images.js" defer></script>
+     <script src="Calendar.js" defer></script>
+ </head>
+ <body bgcolor="#4a5b74" style="background-image: url('Images/bckgr1edit.png'); background-size: cover; object-fit: cover; background-attachment:scroll; color:azure;">      
+     
+     <div class="info">
+         <svg width="60vw" height="60">
+          <rect id="orange-line" width="250" height="10" x="0" y="0" fill="#ffab25"></rect>  
+          <rect id="blue-line" width="100" height="20" x="-20" y="10" fill="#5d07ff"></rect>
+          <rect id="green-line" width="60vw" height="2" x="0" y="30" fill="#07ffbc"></rect> 
+          <rect id="black-line" width="400" height="8" x="0" y="32" fill="#402200"></rect> 
+          <rect id="red-line" width="380" height="18" x="0" y="40" fill="rgb(186, 0, 64)"></rect>
+          <animate 
+                   xlink:href="#blue-line"
+                   attributeName="x" 
+                   from="-10"
+                   to="60vw"
+                   begin="0s"
+                   dur="3s"
+                   repeatCount="indefinite"
+                   fill="freeze" 
+                   id="rect-anim"/>
+         <animate 
+               xlink:href="#blue-line"
+               attributeName="fill"
+               from="#5d07ff"
+               to="deepPink" 
+               dur="4s"
+               repeatCount="indefinite"
+               begin="0s"
+               end="move.begin"
+               fill="freeze"
+               id="changeColor"/>
+        <animate 
+                   xlink:href="#red-line"
+                   attributeName="x" 
+                   from="-100"
+                   to="1"
+                   begin="0s"
+                   dur="4s"
+                   repeatCount="indefinite"
+                   fill="freeze" 
+                   id="rect-anim"/>
+         </svg>
+         
+         <img src="Images/AgPencil.png" alt="ImgAgenda" width="15%" style="float: left; margin-right: 20px;margin-top: 10px;padding-left: 10px;"/>
+         <h1>Ce planuri aveți în această lună ?</h1>
+         <p id="infop" ></p>
+         
+         <div class="Sl-images" style=" margin: 0; padding: 0;">
+             <img src='Images/planim2.jpg' class="slide-show"/>
+             <img src='Images/planim3.jpg' class="slide-show"/>
+             <img src='Images/beach_tropics.jpg' class="slide-show"/>
+             <img src='Images/pexels-agung-pandit-wiguna-1128318.jpg' class="slide-show"/>
+             <img src='Images/kevin-delvecchio-7noZJ_4nhU8-unsplash.jpg' class="slide-show"/>
+             <img src='Images/city-night.jpg' class="slide-show"/>
+             <img src='Images/image.jpg' class="slide-show"/>
+         </div>
+     </div>
+
+     <div id="calendarDays"></div>
+     
+     <div class="menus" style="display: flex; flex-direction: row;" >
+         
+         <div id="usertext">
+             <button id="closewin" onclick="closeDIV()"> X </button><br>
+             <label for="dy">Alege ziua din aceasta luna:</label>
+             <select name="numberdays" id="dy" form="dayform" style="border: none; padding: 5px; margin-left: 20px; background-color: #d5fff0; font-family: myfont5; font-size: 14px;">
+                 <script>
+                    var d = new Date();
+                    var NbMonth = [31,29,31,30,31,30,31,31,30,31,30,31];
+                    var numberMax = NbMonth[d.getMonth()];
+                    var optDay = "";
+                    for(var m = d.getDate() - 1; m < numberMax ; m++)
+                    {
+                        optDay = optDay + '<option value="' + (m+1) + '">' + (m+1) + '</option>';
+                    }
+                     document.write(optDay);
+                 </script>
+             </select><br>
+             <label for="tit">Denumeste noul plan :</label><br>
+             <input name="text" id="tit" value="" autocomplete="off" style="border: none; padding: 5px; background-color: #d5fff0; font-family: Century Gothic; font-size: 18px; width: 40%;" required><br><br>
+             Alege tipul planului:<br>
+             <input id="rad1" type="radio" name="gen" value="cumparaturi"> Plan de cumparaturi<br>
+             <input id="rad2" type="radio" name="gen" value="vacanta"> Plan de vacanta<br>
+             <input id="rad3" type="radio" name="gen" value="intalnire"> Plan de intalnire<br>
+             <input id="rad4" type="radio" name="gen" value="activitate de relaxare"> Plan de activitate de relaxare<br><br>
+             Alege intervalul orar al planului:&nbsp;&nbsp;
+             <input type="time" id="timB" style="border: none; padding: 5px; background-color: #d5fff0; font-family: Century Gothic; font-size: 16px;">&nbsp;-
+             <input type="time" id="timE" style="border: none; padding: 5px; background-color: #d5fff0; font-family: Century Gothic; font-size: 16px;"> (optional timpul de incheiere)<br>
+             <button id="butTextInput" onclick="functAdd()">ADAUGA ></button>
+         </div>
+                 
+         <div id="showinputs" style="overflow-y: scroll;">
+             <button id="closewin" onclick="closeDIV()"> X </button><br>
+             Agenda: <br><br><span id="noplan">Nici un plan adaugat ...</span>
+         </div>
+         
+         <div id='menusbox' style = "background-image: url('Images/cycle-edit.jpg');" onclick="changeMenus(1)">
+             <p>
+                <b>Adauga un nou plan</b><br>
+                <img src = "Images/nextOver.png" id="arrowimg" alt = "Next page" width = "50" height = "auto" style="vertical-align:middle; padding-left: 5%;" />
+             </p>
+             
+         </div>
+         
+        <div id='menusbox' style = "background-image: url('Images/family-picnic-edit.jpg');" onclick="changeMenus(2)">
+             <p>
+                 <b>Vezi un plan anterior</b><br>
+                 <img src = "Images/nextOver.png" id="arrowimg" alt = "Next page" width = "50" height = "auto" style="vertical-align:middle; padding-left: 5%;" />
+            </p>
+        </div>
+         
+     </div>
+    
+    <footer style="height:100px;">
+    </footer>
+    
+    <script>
+             var u = document.getElementById('usertext');
+             var s = document.getElementById('showinputs');
+             var nr = 0;
+             
+             function closeDIV() {
+                 u.style.display = "none";
+                 s.style.display = "none";
+             }
+             function changeMenus(x)
+             { 
+                 if(x == 1) {
+                    u.style.display = "block";
+                 }
+                 else if(x == 2) {
+                     s.style.display = "block";
+                 }
+             }
+             
+             function functAdd() {               
+                var y = document.getElementById('dy').value;
+                var title= document.getElementById('tit').value;
+                var t_beg = document.getElementById('timB').value;
+                var t_end = document.getElementById('timE').value;
+                var selectVal;
+                var rbs = document.querySelectorAll('input[name="gen"]');
+                for (const rb of rbs) {
+                        if (rb.checked == true) {
+                            selectVal = rb.value;
+                            break;
+                        }
+                }
+                
+                if(title == "" || selectVal == "" || t_beg == "") {
+                    alert("Nu ati terminat de completat !");
+                }
+                else {
+                    alert("Datele au fost adaugate !");
+                    var pp = document.getElementById("noplan");
+                    pp.innerHTML = " ";
+                    var par = document.createElement('p');
+                    par.innerHTML = "Planul numarul " + (++nr) +": <br>" + "Pe data de " + y + ", luna aceasta aveti urmatorul eveniment: \"" + title + "\" si este un plan de " + selectVal + (t_end ? " ce are loc in intervalul orar: " + t_beg + " - " + t_end + "<br>" : " care incepe de la ora " + t_beg) + ".";
+                    s.appendChild(par);
+                }
+            }
+    </script>
+
+ </body>
+</html>

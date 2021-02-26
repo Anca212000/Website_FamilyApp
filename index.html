@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="style.css">
+ <head>
+   <title>Login - My Family Agenda</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+ </head>
+ <body bgcolor="#0e7ba0" style="color:whitesmoke;">
+    <div class= "boxTitle">
+        <img src="Images/FamAgendaedit.png" style="width: 60%; height: auto;"/>
+    </div>
+    <div class= "boxLogin">
+        <h1>Login</h1>
+        <form autocomplete="off" id="frm">
+          <label for="userName">Indrodu numele familiei: </label>
+          <input type="text" id="userName" required><br><br>
+          <label for="FamilyPass">Indrodu parola familiei: </label>
+          <input type="password" id="FamilyPass" required><br><br>
+           <span id="message" style="color: #ff4545; display: none;"></span><br>
+           <div id="butSubmit">
+               <button onclick="checkLog()">SUBMIT</button>
+            </div>
+        </form>
+    </div>
+     
+    <script>
+        function checkLog() {
+            var username = document.getElementById('userName').value;
+            var password = document.getElementById('FamilyPass').value;
+            
+            if(username == 'familie' && password == 'familie') {
+                document.getElementById("frm").action = "family-agenda.html";
+            }
+            else if(username == '' || password == '') {
+                alert("Nu ati terminat de completat !");
+            } 
+            else {
+                alert("Nume gresit sau parola incorecta !");
+            }
+        }
+    </script>
+ </body>
+</html>

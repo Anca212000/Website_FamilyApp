@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color:rgba(222, 189, 135, 0.49);
+    background-image: url('Images/imageedit_1.png');
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: fill;
+}
+
+body .boxTitle, .boxLogin {
+    text-align: center;
+    font-family:myFont;
+    font-size: 20px;
+}
+
+.boxTitle {
+    margin-top:5px;
+}
+
+.boxTitle span {
+    font-size: 10vw;
+    text-shadow: 2px 2px 5px #7283a8, -1px -1px 5px rgba(5, 30, 82, 0.64);
+}
+
+@font-face {
+    font-family: myFont;
+    src: url('Fonts/BauhausModern-Regular.ttf');
+  }
+
+@font-face {
+    font-family: myFont2;
+    src: url('Fonts/MODERNA.TTF');
+  }
+
+@font-face {
+    font-family: myFont3;
+    src: url('Fonts/Vonique 92_D.otf');
+  }
+
+@font-face {
+    font-family: myFont4;
+    src: url('Fonts/Quesha.ttf');
+  }
+
+@font-face {
+    font-family: myFont5;
+    src: url('Fonts/good timing bd.ttf');
+  }
+
+.boxLogin {
+    background-color: #46089b;
+    background-image: url('Images/indexLogin.png');
+    background-size: cover;
+    border-bottom: 4px solid rgba(66, 255, 255, 0.57);
+    border-right: 4px solid rgba(66, 255, 255, 0.57);
+    border-radius:80px 20px;
+    padding: 20px;
+    padding-bottom: 0;
+    margin: 30px auto;
+    text-align: center;
+    width: 40%;
+    box-shadow: 1px 1px 0 #7284ad, -1px -1px 0 #7284ad;
+}
+
+.boxLogin h1 {
+    margin-bottom: 10px;
+}
+
+form #userName, form #FamilyPass {
+    background-color:rgba(0, 255, 255, 0.60);
+    border: none;
+    border-radius:5px;
+    height: 20px;
+    color: white;
+    font-family: 'Century Gothic';
+}
+
+form #butSubmit button {
+    background-color:rgb(14, 70, 112);
+    color: aliceblue;
+    min-width: auto;
+    max-width: 120px;
+    height: 40px;
+    border: none;
+    font-family: myfont5;/*'Century Gothic';*/
+    font-weight: bold;
+    font-size: 18px;
+    border: 3px solid rgba(66, 255, 255, 0.57);
+    border-bottom: none;
+    border-radius:20px 20px 0 0;
+    box-shadow: .5px 0 #43ffff, -0.5px -0.5px .5px #43ffff;
+    padding: 10px;
+}
+
+.boxLogin form #butSubmit :hover {
+    background-color: rgba(67, 255, 255, 0.57);
+    cursor: pointer;
+}
+
+.info {
+    box-shadow: 4px 4px 6px grey;
+    margin: 0;
+    padding: 0;
+    font-family: myFont2;
+    font-size: 25px;
+    height: 500px;
+}
+
+.info .Sl-images .slide-show {
+    position: absolute;
+    top:0;
+    margin: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    z-index: -1;
+    object-fit: cover;
+    filter: brightness(50%);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.info h1 {
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0;
+    word-spacing: normal;
+    letter-spacing: 1px;
+    font-family: myfont5; 
+    color: azure;
+    font-size: 4vw;
+}
+
+.info p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Tw Cen MT';
+    font-size: 30px; 
+    color:azure; 
+    border-top: .5px solid grey;
+    padding: 10px 0;
+    background-image: url('Images/head1edit.jpg'); 
+    background-size: cover;
+}
+
+.info h1, #titleMonth {
+    text-shadow: .5px .5px 2px aqua, .5px .5px 0 aqua;
+}
+
+svg {
+    display:block;
+}
+
+#calendarDays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows:repeat(5,1fr);
+    height:100%;
+    text-align:center;
+    font-family: myfont5;
+    width: 100%;
+    /*cursor: pointer;*/
+}
+
+#calendarDays .day {
+    padding-top: 10px;
+    padding-bottom: 25px;
+    border: solid .3px rgba(162, 165, 170, 0.1);
+    min-width: 100px;
+    background-color:#d5fff0;/*azure;*/
+    color: rgb(50,74,112);
+    box-shadow: 1px 1px 3px grey, 0 0 .5px grey;
+}
+
+#calendarDays .name {
+    padding-bottom: 10px;
+    padding-top: 0px;
+    min-width: 100px;
+    margin-top:0;
+    text-transform: uppercase;
+    font-size: large;
+}
+
+.menus {
+    margin: 0;
+    padding-top:20px;
+    font-family:'Century Gothic';
+    font-size: 24px;
+}
+
+.menus #menusbox {
+    text-decoration: none;
+    overflow: auto;
+    box-shadow: 5px 5px 10px grey, -0.1px -5px 10px grey;
+    width: 100%;
+    height: auto;
+    padding: 10vw 10vw;
+    background-color: grey;
+    background-size:cover;
+    object-fit: fill;
+    float: center;
+}
+
+.menus #menusbox p { 
+    color: azure;
+    text-align: center;
+}
+
+.menus #menusbox :hover {
+    color: #3372ff;
+    cursor: pointer;
+}
+
+.menus #usertext, .menus #showinputs {
+    display: none; 
+    width: 100%;
+    height: auto; 
+    background-color: rgb(14, 70, 112);
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    padding: 20px;
+    box-shadow: 0 5px 10px rgb(14, 44, 67), 0 -5px 10px rgb(14, 44, 67);
+}
+
+.menus #showinputs {
+    height: 400px;
+}
+
+#closewin {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #d5fff0;
+    color: rgb(14, 70, 112);
+    font-style: bold;
+    float: right;
+    cursor: pointer;
+}
+
+#butTextInput {
+    border: none;
+    font-family: 'Century Gothic';
+    font-size: 18px;
+    float:right;
+    padding: 10px;
+    background-color: #d5fff0;
+    cursor: pointer;
+}
